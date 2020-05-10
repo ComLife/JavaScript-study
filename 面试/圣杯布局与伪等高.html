@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            min-width: 600px;
+        }
+
+        .header, .footer{
+            height: 30px;
+            text-align: center;
+            border: 1px solid deeppink;
+            background: gray;
+        }
+
+        .content{
+            padding: 0 200px;
+            overflow: hidden;
+        }
+
+        .middle{
+            float: left;
+            width: 100%;
+            background: pink;
+        }
+
+        .left, .right{
+            float: left;
+            width: 200px;
+            background: yellow;
+            padding-bottom: 10000px;
+            margin-bottom: -10000px;
+        }
+
+        .left{
+            margin-left: -100%;
+            position: relative;
+            left: -200px;
+        }
+
+        .right{
+            margin-left: -200px;
+            position: relative;
+            right: -200px;
+        }
+
+        .clearfix{
+            *zoom: 1;
+        }
+
+        .clearfix::after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">Header</div>
+    <div class="content clearfix">
+        <div class="middle">
+            middle<br>
+            middle<br>
+            middle<br>
+            middle<br>
+            middle<br>
+            middle<br>
+            middle<br>
+            middle<br>
+            middle<br>
+            middle<br>
+        </div>
+        <div class="left">left</div>
+        <div class="right">right</div>
+    </div>
+    <div class="footer">Footer</div>
+</body>
+</html>

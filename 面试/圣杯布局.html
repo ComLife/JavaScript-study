@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+    
+        * {
+            margin:0;
+            padding:0;
+        }
+        body{
+            min-width: 600px;
+        }
+        .main{
+            padding: 0 200px;
+            min-width: 400px;
+        }
+
+        .left, .right{
+            width:200px; 
+            float:left; 
+            height: 60px;
+            background-color:pink;
+        }
+
+        .center{
+            background-color:#ccc;
+            width: 100%;
+            min-width: 200px;
+            height: 70px;
+            float:left; 
+        }
+
+        .left{
+            margin-left: -100%;
+            position: relative;
+            left: -200px;
+        }
+
+        .right{
+            margin-left: -200px;
+            position: relative;
+            right: -200px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="main clearfix"> 
+        <div class="center">中间内容，自适应宽度</div>
+
+        <div class="left">这是左侧的内容 固定宽度</div>
+
+        <div class="right">这是右侧的内容 固定宽度</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 手机端的适配 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- IE浏览器的使用设置，设置使用为edge -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 快捷使用 -->
+    <!-- 按住鼠标滚轮可以竖向框选 -->
+
+    <!-- 使用 h1*3 可以生成如下元素-->
+    <h1></h1>
+    <h1></h1>
+    <h1></h1>
+
+    <!-- 使用 h$*3>{$级标题} 可以生成如下元素-->
+    <h1>1级标题</h1>
+    <h2>2级标题</h2>
+    <h3>3级标题</h3>
+
+    <!-- 使用 p*2>lorem 可以生成如下的显示，这里不能加大括号{} -->
+    <!-- 使用 p*2>lorem1 可以生成一个单词的假文 -->
+    <!-- 使用 p*2>lorem1000 可以生成连续1000个单词的假文 -->
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, fugiat quae ea autem molestiae fuga officiis sed quis nisi cumque atque molestias sint, cum aliquam est suscipit recusandae sit unde!</p>
+    <p>Doloribus, quibusdam! Cupiditate ab sit nemo dolor alias debitis explicabo illum voluptatum, labore quaerat ut nihil quos unde iste architecto corporis facilis. Repellat mollitia quibusdam suscipit accusantium vero necessitatibus aliquid?</p>
+
+    <!-- 可以查看p 和 pre的区别 pre的空格不会被折叠-->
+    <p>Lorem ipsum dolor             sit amet consectetur 
+        adipisicing elit. Eius, unde?
+    </p>
+    <pre>Lorem ipsum dolor             sit amet consectetur 
+        adipisicing elit. Eius, unde?
+    </pre>
+
+    <!-- 使用 (h2>{章节1})+p>lorem 可以生成如下内容 ‘+’：表示兄弟原素 如果想生成3个这样的可以用 （(h2>{章节$})+p>lorem）*3 
+        可以尝试一下 h2>{章节1}+p>lorem  生成的是什么内容-->
+    <h2>章节1</h2>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae sequi ab, est quod itaque atque laboriosam optio sed ratione cum vitae adipisci exercitationem sit, placeat explicabo hic, officia voluptas voluptatem?</p>
+
+   <!-- 使用 ((h2[id='chapter$']>{章节$})+p>lorem)*2 可以生成如下内容， 其中‘[]’ 表示给元素添加属性-->
+   <h2 id="chapter1">章节1</h2>
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo maiores odit eaque. Ut quasi vitae, quisquam quia excepturi assumenda vero esse debitis, omnis tempora fuga numquam eligendi magnam voluptatum cumque.</p>
+   <h2 id="chapter2">章节2</h2>
+   <p>Quo, optio eum. Dolores commodi eaque debitis culpa? Vitae facere accusamus doloremque fuga iure sequi magnam nesciunt, sunt, dolorum repudiandae explicabo minima. Eius ipsam illum, vero sint veritatis corrupti! Vitae.</p>
+
+    <!-- 图片和map元素的结合使用 -->
+   <img src="./assets/i/test.jpeg" usemap="#test" />
+    <map name="test">
+      <area shape="rect" coords="80 60,180 140" href="#rect" alt="矩形" />
+      <area shape="circle" coords="125 95,50" href="#rect" alt="圆" />
+      <area
+        shape="poly"
+        coords="120 300,170 380,140 400,95 400,90 320"
+        href="#rect"
+        alt="多边形"
+      />
+    </map>
+</body>
+</html>

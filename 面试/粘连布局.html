@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 粘连布局方式1 */
+        /* html, body{
+            height: 100%;
+        }
+
+        .warp{
+            background-color: lawngreen;
+            min-height: 100%;
+
+        }
+
+        .main{
+            padding-bottom: 50px;
+        }
+
+        .footer{
+            height: 50px;
+            background-color: pink;
+            text-align: center;
+            line-height: 50px;
+            margin-top: -50px;
+        } */
+
+        /* 粘连布局方式2 */
+        body{
+            display: flex;
+            flex-direction: column;
+        }
+
+        .warp{
+            background-color: lawngreen;
+            flex-basis: 100vh;
+        }
+
+        .main{
+            padding-bottom: 50px;
+        }
+
+        .footer{
+            height: 50px;
+            background-color: pink;
+            text-align: center;
+            line-height: 50px;
+            margin-top: -50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="warp">
+        <div class="main">
+            main <br>
+            main <br>
+            main <br>
+            main <br>
+            main <br>
+            main <br>
+            main <br>
+            main <br>
+            main <br>
+            main <br>
+            main <br>
+            main <br>
+     
+        </div>
+    </div>
+    <div class="footer">
+        footer
+    </div>
+</body>
+</html>

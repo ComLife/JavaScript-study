@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <!-- vue组件的第一种用法，vue2.x基本看不到这种写法，原理还是该种方法的调用 -->
+    <div id="app">
+        <my-cpn></my-cpn>
+        <my-cpn></my-cpn>
+    </div>
+
+    <!--第一种写法 script标签，注意类型必须是text/x-template -->
+    <!-- <script type='text/x-template' id='cpn'>
+        <div>
+            <h2>我是标题1</h2>
+            <p>我是内容，哈哈哈哈</p>
+        </div>
+    </script> -->
+    
+    <!--第二种写法 template标签，通常使用此种方法 -->
+    <template id='cpn'>
+        <div>
+            <h2>我是标题1</h2>
+            <p>我是内容，呵呵呵呵</p>
+            <p>{{message}}</p>
+        </div>
+    </template>
+
+    <script>
+        // 该种写法是对componentUse.html写法的升级
+        Vue.component('my-cpn', {
+            template: '#cpn',
+            //注意：这里必须是一个函数，而vue实例那里是一个对象
+            // 这里为什么设计为一个函数，这是因为当组件被多个地方使用的时候，为了避免数据的互不干扰，
+            // 一个组件里面值的改变不会影响到另一个组件里面的数据
+            data(){
+                return {
+                    message: 'Vue的学习'
+                }
+            }
+        });
+
+        const app = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            // 改种方法创建的是局部组件，只能在该组件实例下使用
+            components: {
+                
+            },
+        })
+    </script>
+</body>
+</html>

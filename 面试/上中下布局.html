@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+
+        html, body{
+            height: 100%;
+        }
+
+        /* 上下确定，中间自适应布局1 */
+        /* .content{
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .up{
+            height: 100px;
+            background-color: darkorange;
+        }
+
+        .down{
+            height: 100px;
+            background-color: darkseagreen;
+        }
+
+        .center{
+            background-color: darkturquoise;
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .circle{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: deeppink;
+        } */
+
+        /* 
+            ===========================
+            上下确定，中间自适应布局2 
+        */
+        /* .content{
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .up{
+            height: 100px;
+            background-color: darkorange;
+        }
+
+        .down{
+            height: 100px;
+            background-color: darkseagreen;
+        }
+
+        .center{
+            background-color: darkturquoise;
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .circle{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: deeppink;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -50px;
+            margin-left:-50px;
+        } */
+
+        /* 
+            ===========================
+            上下确定，中间自适应布局3
+        */
+        .content{
+            position: relative;
+            height: 100%;
+        }
+
+        .up{
+            height: 100px;
+            background-color: darkorange;
+        }
+
+        .down{
+            height: 100px;
+            background-color: darkseagreen;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            bottom: 0;
+        }
+
+        .center{
+            background-color: darkturquoise;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 100px;
+            bottom: 100px;
+        }
+
+        .circle{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: deeppink;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -50px;
+            margin-left:-50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class='up'></div>
+        <div class='center'>
+            <div class="circle">
+
+            </div>
+        </div>
+        <div class='down'></div>
+    </div>
+</body>
+</html>

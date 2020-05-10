@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,body{
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        .box{
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            font-size: 16px;
+            border: 1px solid lightblue;
+            background-color: lightcyan;
+        }
+
+       
+        body{
+            position: relative;
+        }
+
+        /*
+        *   居中定位1,此方法有个问题，必须知道子盒子的宽高
+        */
+        .box{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -25;
+            margin-left: -50px;
+        }
+
+        /*
+        *   居中定位2,此方法不需要知道子盒子的宽高，但是子盒子必须有宽高
+        */
+        .box{
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+        /*
+        *   居中定位3,此方法不需要知道子盒子的宽高，但是有兼容性问题
+        */
+        .box{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50% -50%);
+        }
+
+        /*
+        *   居中定位4,flex布局，但是有兼容性问题
+        */
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // css盒模型
+        // 盒子模型分为两种 第一种是W3c标准的盒子模型（标准盒模型） 、第二种IE标准的盒子模型（怪异盒模型）
+
+        // 1、标准盒模型中width指的是内容区域content的宽度；height指的是内容区域content的高度。
+        // 标准盒模型下盒子的大小  = content + border + padding + margin
+
+        // 2、怪异盒模型中的width指的是内容、边框、内边距总的宽度（content + border + padding）；height指的是内容、边框、内边距总的高度
+        // 怪异盒模型下盒子的大小=width（content + border + padding） + margin
+
+        // 简单说说flex弹性盒
+        // http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html
+    </script>
+    <div class="box">
+        居中文本
+    </div>
+</body>
+</html>

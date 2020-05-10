@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <!-- vue组件的第一种用法，vue2.x基本看不到这种写法，原理还是该种方法的调用 -->
+    <div id="app">
+        <my-cpn></my-cpn>
+    </div>
+   
+    <script>
+        //  const cpnC = Vue.extend({
+        //     template: `
+        //         <div>
+        //             <h2>我是全局组件</h2>
+        //         </div>
+        //     `
+        // })
+
+        // const cpnC1 = Vue.extend({
+        //     template: `
+        //         <div>
+        //             <h2>我是标题1</h2>
+        //             <p>我是内容，哈哈哈哈</p>
+        //         </div>
+        //     `
+        // })
+
+        // const cpnC2 = Vue.extend({
+        //     template: `
+        //         <div>
+        //             <h2>我是标题2</h2>
+        //             <p>我是内容，呵呵呵呵</p>
+        //             <cpn1></cpn1>
+        //         </div>
+        //     `,
+        //     // cpn1组件只能在cpnC2模板中使用，因为是定义在cpnC2模板中的局部组件
+        //     components: {
+        //         cpn1: cpnC1
+        //     }
+        // })
+
+        // 创建全局组件的语法糖写法
+        Vue.component('my-cpn', {
+            template: `
+                <div>
+                    <h2>我是标题1</h2>
+                    <p>我是内容，哈哈哈哈</p>
+                </div>
+            `
+        });
+        // 下面创建全局组件的方法等同于上面的写法
+        const cpnC = Vue.extend({
+            template: `
+                <div>
+                    <h2>我是标题1</h2>
+                    <p>我是内容，哈哈哈哈</p>
+                </div>
+            `
+        })
+        Vue.component('my-cpn', cpnC);
+
+        const app = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            // 改种方法创建的是局部组件，只能在该组件实例下使用
+            components: {
+                // 注册局部组件的语法糖
+                'my-cpn': {
+                    template: `
+                        <div>
+                            <h2>我是标题1</h2>
+                            <p>我是内容，哈哈哈哈</p>
+                        </div>
+                    `
+                }
+            },
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <!-- vue组件的第一种用法，vue2.x基本看不到这种写法，原理还是该种方法的调用 -->
+    <div id="app">
+        <!-- cpnclick不用带括号传值，框架默认传递发过来的值 -->
+        <cpn v-on:itemclick='cpnclick'></cpn>
+    </div>
+    
+    <!--第二种写法 template标签，通常使用此种方法 -->
+    <template id='cpn'>
+        <div>
+            <button v-for='item in categories' @click='btnclick(item)'>{{item.name}}</button>
+        </div>
+    </template>
+
+    <script>
+
+        const cpn = {
+            template: '#cpn',
+           
+            data(){
+                return {
+                    categories: [
+                        {id: 1, name: '热门推荐'},
+                        {id: 2, name: '手机数码'},
+                        {id: 3, name: '家具家电'},
+                        {id: 4, name: '电脑办公'},
+                    ],
+                }
+            },
+
+            methods: {
+                btnclick(item){
+                    console.log(item);
+                    this.$emit('itemclick', item);
+                }
+            }
+        }
+
+        const app = new Vue({
+            el: '#app',
+            data: {
+                movies: ['海贼王', '火影忍者', '海尔兄弟'],
+                message: '这些动漫真好看'
+            },
+            // 改种方法创建的是局部组件，只能在该组件实例下使用
+            components: {
+                cpn
+            },
+
+            methods:{
+                cpnclick(item){
+                    console.log('cpnclick',item);
+                }
+            }
+        })
+    </script>
+</body>
+</html>
