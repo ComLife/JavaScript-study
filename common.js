@@ -259,7 +259,7 @@ var commonUtils = {
         // }
         // return newObj;
         return Object.assign({}, obj1, obj2);
-    }
+    },
 
     // JSON.parse(Json.stringify(obj))  该方法的缺陷是对属性是正则，函数和new Date()克隆有误,可以对以下的对象克隆看输出的结果
     // d克隆期望是：new Date()这个函数，结果：new Date()创建的一个时间， f：克隆期望是/^\d+$/ 结果：{}
