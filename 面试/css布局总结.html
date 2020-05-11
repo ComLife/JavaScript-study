@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css布局总结</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body{
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            font-size: 14px;
+        }
+
+        p{
+            font-size: 24px;
+            font-weight: bold;
+            margin-left: 15px;
+        }
+
+        /* 文本/行内元素/行内块级元素▲---水平居中==================== */
+        .parent1{
+            text-align: center;
+            background-color: deepskyblue;
+        }
+
+        /* 单个块级元素▲---水平居中==================== */
+        .parent2{
+            background-color: deepskyblue;
+            height: 50px;
+            margin-top: 50px;
+        }
+        .son2{
+            width: 50px;
+            height: 50px;
+            margin: 0 auto;
+            background-color: gold;
+        }
+
+        /* 使用绝对定位实现▲---水平居中==================== */
+        /* 水平居中的第一种方式 */
+        /* .parent3{
+            width: 100%;
+            height: 50px;
+            position: relative;
+            margin-top: 50px;;
+            background-color: deepskyblue;
+        }
+        .son3{
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 50px;
+            width: 50px;
+            margin: 0 auto;
+            background-color: gold;
+        } */
+
+        .parent3{
+            width: 100%;
+            height: 50px;
+            position: relative;
+            margin-top: 50px;;
+            background-color: deepskyblue;
+        }
+        .son3{
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            left: 50%;
+            transform: translateX(-50%); /*自身宽度一半,等同于margin-left: -50px;*/
+            background-color: gold;
+        }
+
+        /* 使用flex布局实现▲---水平居中==================== */
+        .parent4{
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            height: 50px;
+            margin-top: 50px;;
+            background-color: deepskyblue;
+        }
+        .son4{
+            width: 50px;
+            height: 50px;
+            background-color: gold;
+        }
+
+        /* 单行文本/行内元素/行内块级元素▲---垂直居中==================== */
+        .parent5{
+            width: 100%;
+            height: 100px;
+            background-color: deepskyblue;
+            line-height: 100px;
+        }
+        .son5{
+            background-color: gold;
+        }
+
+        /* 图片元素▲---垂直居中==================== */
+        .parent6{
+            width: 100%;
+            height: 100px;
+            background-color: deepskyblue;
+            font-size: 0;
+            margin-top: 50px;
+            line-height: 100px;
+        }
+        .son6{
+            width: 30px;
+            height: 30px;
+            vertical-align: middle;
+        }
+
+        /* 使用tabel-cell实现---垂直居中==================== */
+        .parent7{
+            width: 100%;
+            height: 100px;
+            background-color: deepskyblue; 
+            margin-top: 50px;
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .son7{
+            width: 30px;
+            height: 30px;
+            background-color: gold;
+        }
+
+        /* 使用绝对定位实现:▲---垂直居中==================== */
+        /* position垂直居中的第一种方法 */
+        /*优缺点
+            - 优点：使用margin-top兼容性好；不管是块级还是行内元素都可以实现
+            - 缺点：代码较多；脱离文档流；使用margin-top需要知道高度值；使用transform兼容性不好（ie9+）
+        */
+        .parent8{
+            position: relative;
+            width: 100%;
+            height: 100px;
+            background-color: deepskyblue; 
+            margin-top: 50px;
+        }
+        .son8{
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            top: 50%;  /*父元素高度一半,这里等同于top:75px;*/
+            transform: translateY(-50%);  /*自身高度一半,这里等同于margin-top:-25px;*/
+            background-color: gold;
+        }
+
+        /* position垂直居中的第二种方法 */
+        /*优缺点
+            - 优点：简单;兼容性较好(ie8+)
+            - 缺点：脱离文档流
+        */
+        /* .parent8{
+            position: relative;
+            width: 100%;
+            height: 100px;
+            background-color: deepskyblue; 
+            margin-top: 50px;
+        }
+        .son8{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 30px;
+            height: 30px;
+            margin: auto 0;
+            background-color: gold;
+        } */
+
+        /* 使用flex实现:▲---垂直居中==================== */
+        /* flex垂直居中的第一种方法 */
+        /* .parent9{
+            width: 100%;
+            height: 100px;
+            background-color: deepskyblue; 
+            margin-top: 50px;
+            display: flex;
+            align-items: center;
+        }
+        .son9{
+            width: 30px;
+            height: 30px;
+            background-color: gold;
+        } */
+
+        /* flex垂直居中的第二种方法 */
+        /* .parent9{
+            width: 100%;
+            height: 100px;
+            background-color: deepskyblue; 
+            margin-top: 50px;
+            display: flex;
+        }
+        .son9{
+            width: 30px;
+            height: 30px;
+            align-self: center;
+            background-color: gold;
+        } */
+
+        /* flex垂直居中的第三种方法 */
+        .parent9{
+            width: 100%;
+            height: 100px;
+            background-color: deepskyblue; 
+            margin-top: 50px;
+            display: flex;
+        }
+        .son9{
+            width: 30px;
+            height: 30px;
+            margin: auto 0;
+            background-color: gold;
+        }
+    </style>
+</head>
+<body>
+    <p>水平居中</p>
+    <div class="parent1">
+        <span>水平居中</span>
+    </div>
+    优点：简单快捷，容易理解，兼容性非常好.<br>
+    缺点：只对行内内容有效；属性会继承影响到后代行内内容；如果子元素宽度大于父元素宽度则无效，
+    只有后代行内内容中宽度小于设置text-align属性的元素宽度的时候，才会水平居中
+
+    <div class="parent2">
+        <div class="son2">2</div>
+    </div>
+    优点：简单；兼容性好<br>
+    缺点：必须定宽，并且值不能为auto；宽度要小于父元素，否则无效
+
+    <div class="parent3">
+        <div class="son3">3</div>
+    </div>
+    优点：使用margin-left兼容性好；不管是块级还是行内元素都可以实现<br>
+    缺点：代码较多；脱离文档流；使用margin-left需要知道宽度值；使用transform兼容性不好（ie9+）
+
+    <div class="parent4">
+        <div class="son4">4</div>
+    </div>
+    优点：功能强大；简单方便；容易理解<br>
+    缺点：PC端兼容性不好，移动端（Android4.0+
+
+    <p style='margin-top: 50px;'>垂直居中</p>
+
+    <div class="parent5">
+        <span class="son5">垂直居中</span>
+    </div>
+    优点：简单；兼容性好<br>
+    缺点：只能用于单行行内内容；要知道高度的值
+
+    <div class="parent6">
+        <img src="./test.jpg" alt="" class="son6">
+    </div>
+    优点：简单；兼容性好<br>
+    缺点：需要添加font-size: 0; 才可以完全的垂直居中；不过需要主要，html#parent包裹img之间需要有换行或空格
+
+    <div class="parent7">
+        <div class="son7">7</div>
+    </div>
+    优点：简单；宽高不定；兼容性好（ie8+）<br>
+    缺点：设置tabl-cell的元素，宽度和高度的值设置百分比无效，需要给它的父元素设置display: table; 才生效；table-cell不感知margin，在父元素上设置table-row等属性，也会使其不感知height；设置float或position会对默认布局造成破坏，可以考虑为之增加一个父div定义float等属性；内容溢出时会自动撑开父元素
+
+    <div class="parent8">
+        <div class="son8">8</div>
+    </div>
+
+    <div class="parent9">
+        <div class="son9">9</div>
+    </div>
+    优点：简单灵活；功能强大<br>
+    缺点：PC端兼容性不好，移动端（Android4.0+）
+</body>
+</html>
