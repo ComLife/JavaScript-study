@@ -341,6 +341,157 @@
             height: 50px;
             background-color: gold;
         }
+
+        /* 利用float+margin实现 */
+        .parent17{
+            width: 100%;
+            height: 100px;
+            margin-top: 50px;
+            background-color: deepskyblue;
+        }
+        .parent17::after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .left17{
+            float: left;
+            width: 100px;
+            height: 100px;
+            background-color: antiquewhite;
+        }
+        .right17{
+            height: 100px;
+            margin-left: 100px;
+            background-color: aquamarine;
+        }
+
+        /* 利用float+margin(fix)实现 */
+        .parent18{
+            width: 100%;
+            height: 100px;
+            margin-top: 50px;
+            background-color: deepskyblue;
+        }
+
+        .left18{
+            float: left;
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+        }
+
+        .right-fix18{
+            float: right;
+            width: 100%;
+            height: 100px;
+            margin-left: -100px;
+        }
+
+        .right18{
+            margin-left: 100px;
+            height: 100px;
+            background-color: blanchedalmond;
+        }
+
+        /* 使用float+overflow实现 */
+        .parent19{
+            width: 100%;
+            height: 100px;
+            margin-top: 50px;
+            background-color: deepskyblue;
+        }
+
+        .left19{
+            float: left;
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+        }
+        .right19{
+            overflow: hidden;
+            height: 100px;
+            background-color: blanchedalmond;
+        }
+
+        /* 使用绝对定位实现 */
+        .parent20{
+            width: 100%;
+            height: 100px;
+            margin-top: 50px;
+            background-color: deepskyblue;
+            position: relative;
+        }
+
+        .left20{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100px;
+            background-color: yellow;
+        }
+        .right20{
+            position: absolute;
+            top: 0;
+            left: 100px;
+            right: 0;
+            bottom: 0;
+            background-color: blanchedalmond;
+        }
+
+        /* 使用flex实现 */
+        .parent21{
+            width: 100%;
+            height: 100px;
+            margin-top: 50px;
+            background-color: deepskyblue;
+            display: flex;
+            flex-direction: row;
+        }
+        .left21{
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+        }
+        .right21{
+            flex: 1;
+        }
+
+        /* 使用float+overflow实现 */
+        .parent22{
+            width: 100%;
+            height: 100px;
+            margin-top: 50px;
+            background-color: deepskyblue;
+        }
+        .left22{
+            float: left;
+            height: 100px;
+            background-color: yellow;
+        }
+        .right22{
+            overflow: hidden;
+            height: 100px;
+            background-color: blanchedalmond;
+        }
+
+        /* 使用flex实现 */
+        .parent23{
+            display: flex;
+            width: 100%;
+            height: 100px;
+            margin-top: 50px;
+            background-color: deepskyblue;
+        }
+        .left23{
+            height: 100px;
+            background-color: yellow;
+        }
+        .right23{
+            flex: 1;
+            height: 100px;
+            background-color: blanchedalmond;
+        }
     </style>
 </head>
 <body>
@@ -437,5 +588,50 @@
     </div>
     优点：简单灵活；功能强大<br>
     缺点：PC端兼容性不好，移动端（Android4.0+）
+
+    <p style='margin-top: 50px;'>两列布局</p>
+
+    <!-- 利用float+margin实现左侧固定右侧自适应的两种方法，该方法不是很熟，需要特别复习 -->
+    <div class="parent17">
+        <div class="left17">使用float+margin实现-左列固定</div>
+        <div class="right17">使用float+margin实现-右列自适应</div>
+    </div>
+
+    <div class="parent18">
+        <div class="left18">使用float+margin实现-左列固定</div>
+        <div class="right-fix18">
+            <div class="right18">使用float+margin实现-右列自适应</div>
+        </div>
+    </div>
+
+    <div class="parent19">
+        <div class="left19">使用float+overflow实现-左侧固定</div>
+        <div class="right19">使用float+overflow实现-右列自适应</div>
+    </div>
+    优点：代码简单，容易理解，无需关注定宽的宽度，利用bfc达到自适应效果<br>
+    缺点：浮动脱离文档流，需要手动清除浮动，否则会产生高度塌陷；不支持ie6
+
+    <div class="parent20">
+        <div class="left20">使用绝对定位实现-左侧固定</div>
+        <div class="right20">使用绝对定位实现-右侧自适应</div>
+    </div>
+
+    <div class="parent21">
+        <div class="left21">使用flex实现-左侧固定</div>
+        <div class="right21">使用flex实现-右侧自适应</div>
+    </div>
+
+    <p style='margin-top: 50px;'>一列不定，一列自适应</p>
+    <div class="parent22">
+        <div class="left22">使用float+overflow实现-左列不定宽</div>
+        <div class="right22">使用float+overflow实现-右侧自适应</div>
+    </div>
+    优点：代码简单，容易理解，无需关注宽度，利用bfc达到自适应效果<br>
+    缺点：浮动脱离文档流，需要手动清除浮动，否则会产生高度塌陷；不支持ie6
+
+    <div class="parent23">
+        <div class="left23">使用flex实现-左列不定宽</div>
+        <div class="right23">使用flex实现-右侧自适应</div>
+    </div>
 </body>
 </html>
